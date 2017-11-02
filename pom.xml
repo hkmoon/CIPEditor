@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.scijava</groupId>
+        <artifactId>pom-scijava</artifactId>
+        <version>16.2.0</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>invizio</groupId>
+    <artifactId>CIPEditor</artifactId>
+    <version>0.1.0</version>
+
+    <name>CIP Editor</name>
+
+    <modules>
+        <module>../ImgAlgo</module>
+        <module>../CIP</module>
+    </modules>
+
+    <description>A editor for CIP(Classic Image Processing).</description>
+    <url>none</url>
+    <inceptionYear>2016</inceptionYear>
+    <organization>
+        <name>invizio</name>
+        <url>none</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>BSD3</name>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>hkmoon</id>
+            <name>HongKee Moon</name>
+            <url>http://imagej.net/User:Moon</url>
+            <roles>
+                <role>founder</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+    <contributors>
+        <contributor>
+            <name>none</name>
+        </contributor>
+    </contributors>
+
+    <mailingLists>
+        <mailingList>
+            <name>none</name>
+            <archive>none</archive>
+        </mailingList>
+    </mailingLists>
+
+
+    <scm>
+        <url>none</url>
+    </scm>
+    <issueManagement>
+        <system>none</system>
+        <url>none</url>
+    </issueManagement>
+    <ciManagement>
+        <system>none</system>
+    </ciManagement>
+
+    <properties>
+        <package-name>invizio.cip</package-name>
+        <main-class>invizio.cip.CIPEditor</main-class>
+        <license.licenseName>BSD3</license.licenseName>
+        <license.copyrightOwners>Benoit Lombardot</license.copyrightOwners>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>imagej.public</id>
+            <url>http://maven.imagej.net/content/groups/public</url>
+        </repository>
+    </repositories>
+</project>
