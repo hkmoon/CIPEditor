@@ -17,11 +17,6 @@
 
     <name>CIP Editor</name>
 
-    <modules>
-        <module>../ImgAlgo</module>
-        <module>../CIP</module>
-    </modules>
-
     <description>A editor for CIP(Classic Image Processing).</description>
     <url>none</url>
     <inceptionYear>2016</inceptionYear>
@@ -85,4 +80,16 @@
             <url>http://maven.imagej.net/content/groups/public</url>
         </repository>
     </repositories>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>invizio</groupId>
+            <artifactId>CIP</artifactId>
+            <version>0.1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../CIP/target/CIP-0.1.0.jar</systemPath>
+        </dependency>
+
+    </dependencies>
 </project>
