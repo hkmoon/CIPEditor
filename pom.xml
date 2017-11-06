@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>invizio</groupId>
+    <groupId>nvisio</groupId>
     <artifactId>CIPEditor</artifactId>
     <version>0.1.0</version>
 
@@ -19,10 +19,10 @@
 
     <description>A editor for CIP(Classic Image Processing).</description>
     <url>none</url>
-    <inceptionYear>2016</inceptionYear>
+    <inceptionYear>2017</inceptionYear>
     <organization>
-        <name>invizio</name>
-        <url>none</url>
+        <name>nvisio</name>
+        <url>nvis.io</url>
     </organization>
     <licenses>
         <license>
@@ -40,6 +40,7 @@
                 <role>founder</role>
                 <role>developer</role>
             </roles>
+            <timezone>+1</timezone>
         </developer>
     </developers>
     <contributors>
@@ -68,10 +69,10 @@
     </ciManagement>
 
     <properties>
-        <package-name>invizio.cip</package-name>
-        <main-class>invizio.cip.CIPEditor</main-class>
+        <package-name>nvisio.cip</package-name>
+        <main-class>nvisio.cip.CIPEditor</main-class>
         <license.licenseName>BSD3</license.licenseName>
-        <license.copyrightOwners>Benoit Lombardot</license.copyrightOwners>
+        <license.copyrightOwners>HongKee Moon</license.copyrightOwners>
     </properties>
 
     <repositories>
@@ -82,14 +83,85 @@
     </repositories>
 
     <dependencies>
-
         <dependency>
-            <groupId>invizio</groupId>
+            <groupId>net.imagej</groupId>
+            <artifactId>imagej</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.imagej</groupId>
+            <artifactId>imagej-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2-ij</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>nvisio</groupId>
             <artifactId>CIP</artifactId>
             <version>0.1.0</version>
             <scope>system</scope>
             <systemPath>${basedir}/../CIP/target/CIP-0.1.0.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>com.fifesoft</groupId>
+            <artifactId>rsyntaxtextarea</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fifesoft</groupId>
+            <artifactId>languagesupport</artifactId>
+            <version>2.6.0</version>
+        </dependency>
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <configuration>
+                    <rules>
+                        <banDuplicateClasses>
+                            <dependencies>
+                                <dependency>
+                                    <artifactId>bioformats_package</artifactId>
+                                    <ignoreClasses>
+                                        <ignoreClass>*</ignoreClass>
+                                    </ignoreClasses>
+                                </dependency>
+                                <dependency>
+                                    <artifactId>xalan</artifactId>
+                                    <ignoreClasses>
+                                        <ignoreClass>*</ignoreClass>
+                                    </ignoreClasses>
+                                </dependency>
+                            </dependencies>
+                        </banDuplicateClasses>
+                    </rules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
