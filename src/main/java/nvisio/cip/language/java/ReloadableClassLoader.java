@@ -1,4 +1,4 @@
-package nvisio.cip.compiler;
+package nvisio.cip.language.java;
 
 /**
  * Thanks to http://tutorials.jenkov.com/java-reflection/dynamic-class-loading-reloading.html

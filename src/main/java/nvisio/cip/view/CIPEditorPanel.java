@@ -1,11 +1,9 @@
 package nvisio.cip.view;
 
 import ij.IJ;
-import nvisio.cip.compiler.CompilerUtils;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import net.imagej.ImageJ;
+import nvisio.cip.language.java.CompilerUtils;
 import javafx.embed.swing.SwingNode;
-import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 import java.io.File;
@@ -19,11 +17,13 @@ public class CIPEditorPanel extends BorderPane
 	boolean bStandAlone = true;
 	Editor eEditor;
 
-	public CIPEditorPanel()
+	public CIPEditorPanel( ImageJ ij )
 	{
 		// Add necessary classes for CompilerUtils and JavaLanguageSupport for editor
 		try
 		{
+			//IJ.getClassLoader().loadClass( "nvisio.cip.CIP" );
+//			CompilerUtils.addClassPath( "res/lib/CIP-0.1.0.jar" );
 			String str = IJ.getClassLoader().loadClass( "nvisio.cip.CIPEditor" ).getResource( "" ).toString();
 
 			//			System.err.println(str);
@@ -43,7 +43,7 @@ public class CIPEditorPanel extends BorderPane
 			else
 			{
 				jarInfos = new String[ 3 ];
-				jarInfos[ 0 ] = str.replace( "jar:file:", "" ).replace( "!/invizio/cip/", "" );
+				jarInfos[ 0 ] = str.replace( "jar:file:", "" ).replace( "!/nvisio/cip/", "" );
 				//				System.out.println( jarInfos[ 0 ] );
 
 				// The below method has a bug
@@ -56,7 +56,7 @@ public class CIPEditorPanel extends BorderPane
 				//				System.out.println( jarInfos[ 1 ] );
 
 				str = IJ.getClassLoader().loadClass( "nvisio.cip.CIPService" ).getResource( "" ).toString();
-				jarInfos[ 2 ] = str.replace( "jar:file:", "" ).replace( "!/invizio/cip/", "" );
+				jarInfos[ 2 ] = str.replace( "jar:file:", "" ).replace( "!/nvisio/cip/", "" );
 				//				System.out.println( jarInfos[ 2 ] );
 			}
 
@@ -66,53 +66,12 @@ public class CIPEditorPanel extends BorderPane
 			e.printStackTrace();
 		}
 
-		eEditor = new JavaMacroEditor( null );
+		// eEditor = new JavaEditor( null );
+		eEditor = new JythonEditor( ij );
 
 		final SwingNode node = new SwingNode();
 
 		node.setContent(eEditor);
 		setCenter(node);
-
-		sceneProperty().addListener(new ChangeListener<Scene>()
-		{
-			@Override
-			public void changed(ObservableValue<? extends Scene> observable,
-					Scene oldValue,
-					Scene newValue)
-			{
-				if (newValue != null)
-				{
-//					newValue.widthProperty().addListener(new ChangeListener<Number>() {
-//						@Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-//							System.out.println("Width: " + newSceneWidth);
-////							eEditor.setSize( (int)getHeight(), (int)getWidth() );
-////							node.resize( getHeight(), getWidth() );
-//							eEditor.setSize( (int)getWidth(), (int)getHeight() );
-//							node.resize( getWidth(), getHeight() );
-//						}
-//					});
-//					newValue.heightProperty().addListener(new ChangeListener<Number>() {
-//						@Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
-//							System.out.println("Height: " + newSceneHeight);
-////							eEditor.setSize( (int)getHeight(), (int)getWidth() );
-////							node.resize( getHeight(), getWidth() );
-//							eEditor.setSize( (int)getWidth(), (int)getHeight() );
-//							node.resize( getWidth(), getHeight() );
-//						}
-//					});
-				}
-			}
-		});
-//
-//		focusedProperty().addListener((observable,
-//				oldValue,
-//				newValue) -> {
-//			if (newValue)
-//				node.setContent(eEditor);
-//		});
-//
-//		setOnMouseClicked(event -> {
-//			this.requestFocus();
-//		});
 	}
 }

@@ -1,10 +1,14 @@
 package nvisio.cip;
 
 import net.imagej.ImageJ;
+import nvisio.cip.view.JythonEditor;
+import org.scijava.Context;
 import org.scijava.command.Command;
 import org.scijava.log.LogService;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
+
+import javax.swing.JFrame;
 
 /**
  * Author: HongKee Moon
@@ -22,6 +26,10 @@ public class CIPEditorPlugin implements Command
 	public void run()
 	{
 		new CIPEditor().run( null, ij );
+
+//		JFrame jFrame = new JFrame( "CIP Editor" );
+//		jFrame.setContentPane( new JythonEditor( ij ) );
+//		jFrame.setVisible( true );
 	}
 
 	public static void main(final String... args) throws Exception {

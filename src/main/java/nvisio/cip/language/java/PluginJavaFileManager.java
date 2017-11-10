@@ -1,4 +1,4 @@
-package nvisio.cip.compiler;
+package nvisio.cip.language.java;
 
 /**
  * Dynamic code injection is based on the below blog.

@@ -4,10 +4,18 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextAreaEditorKit;
 import org.fife.ui.rsyntaxtextarea.Theme;
 import org.fife.ui.rtextarea.RTextScrollPane;
+import org.scijava.Context;
+import org.scijava.log.LogService;
+import org.scijava.plugin.Parameter;
+import org.scijava.prefs.PrefService;
+import org.scijava.script.ScriptHeaderService;
+import org.scijava.script.ScriptService;
 
 import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
@@ -27,7 +35,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Author: HongKee Moon
+ * Author: HongKee Moon (moon@mpi-cbg.de), Scientific Computing Facility
+ * Organization: MPI-CBG Dresden
+ * Date: November 2017
  */
 public abstract class Editor extends JPanel
 {
@@ -51,6 +61,8 @@ public abstract class Editor extends JPanel
 
 	protected String recentFileName;
 
+	protected String fileName;
+
 	protected Editor()
 	{
 		setLayout( new BorderLayout() );
@@ -70,12 +82,12 @@ public abstract class Editor extends JPanel
 				int returnVal = fileChooser.showOpenDialog(getParent());
 				if(returnVal == JFileChooser.APPROVE_OPTION)
 				{
-					String filename = fileChooser.getSelectedFile().getAbsolutePath();
+					fileName = fileChooser.getSelectedFile().getAbsolutePath();
 					recentFileName = fileChooser.getSelectedFile().getName();
 					// setTitle( recentFileName );
 
 					try {
-						FileInputStream fis = new FileInputStream(filename);
+						FileInputStream fis = new FileInputStream(fileName);
 						InputStreamReader in = new InputStreamReader(fis, "UTF-8");
 
 						textArea.read(in, null);
@@ -101,12 +113,12 @@ public abstract class Editor extends JPanel
 				int returnVal = fileChooser.showSaveDialog(getParent());
 				if(returnVal == JFileChooser.APPROVE_OPTION)
 				{
-					String filename = getFilenameCheck(fileChooser.getSelectedFile().getAbsolutePath());
+					fileName = getFilenameCheck(fileChooser.getSelectedFile().getAbsolutePath());
 					recentFileName = fileChooser.getSelectedFile().getName();
 //					setTitle( recentFileName );
 
 					try {
-						FileOutputStream fos = new FileOutputStream(filename);
+						FileOutputStream fos = new FileOutputStream(fileName);
 						OutputStreamWriter out = new OutputStreamWriter(fos, "UTF-8");
 
 						textArea.write(out);

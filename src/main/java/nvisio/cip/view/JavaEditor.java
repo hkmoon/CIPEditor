@@ -1,7 +1,7 @@
 package nvisio.cip.view;
 
-import nvisio.cip.compiler.CompilerUtils;
-import nvisio.cip.compiler.PluginRuntime;
+import nvisio.cip.language.java.CompilerUtils;
+import nvisio.cip.language.java.PluginRuntime;
 import org.fife.rsta.ac.LanguageSupport;
 import org.fife.rsta.ac.LanguageSupportFactory;
 import org.fife.rsta.ac.java.JarManager;
@@ -26,12 +26,12 @@ import java.util.regex.Pattern;
 /**
  * Author: HongKee Moon
  */
-public class JavaMacroEditor extends Editor
+public class JavaEditor extends Editor
 {
 	protected Class plugin;
 	protected String[] jarInfos;
 
-	public JavaMacroEditor(String[] jarInfos) {
+	public JavaEditor(String[] jarInfos) {
 		this.jarInfos = jarInfos;
 
 		if(jarInfos != null)

@@ -1,4 +1,4 @@
-package nvisio.cip.compiler;
+package nvisio.cip.language.java;
 
 import java.io.File;
 import java.util.Map;

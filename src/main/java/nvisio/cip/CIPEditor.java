@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import net.imagej.ImageJ;
+import org.scijava.Context;
 
 /**
  * Author: HongKee Moon
@@ -42,7 +43,7 @@ public class CIPEditor extends Application
 					else
 						mStage = primaryStage;
 
-					Scene scene = new Scene( new CIPEditorPanel(), 500, 600 );
+					Scene scene = new Scene( new CIPEditorPanel( ij ), 500, 600 );
 
 					mStage.setOnCloseRequest( new EventHandler< WindowEvent >()
 					{
