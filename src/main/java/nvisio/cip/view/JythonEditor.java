@@ -3,10 +3,11 @@ package nvisio.cip.view;
 import net.imagej.ImageJ;
 import nvisio.cip.language.java.CompilerUtils;
 import nvisio.cip.language.jython.JythonLanguageSupport;
+import nvisio.cip.language.jython.buildpath.JarLibraryInfo;
+import nvisio.cip.language.jython.JarManager;
+
 import org.fife.rsta.ac.LanguageSupport;
 import org.fife.rsta.ac.LanguageSupportFactory;
-import org.fife.rsta.ac.java.JarManager;
-import org.fife.rsta.ac.java.buildpath.JarLibraryInfo;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.scijava.Context;
@@ -100,7 +101,7 @@ public class JythonEditor extends Editor
 	@Override protected void setLanguage( RSyntaxTextArea ta )
 	{
 		LanguageSupportFactory lsf = LanguageSupportFactory.get();
-		lsf.addLanguageSupport( SyntaxConstants.SYNTAX_STYLE_PYTHON, "nvisio.cip.language.JythonLanguageSupport" );
+		lsf.addLanguageSupport( SyntaxConstants.SYNTAX_STYLE_PYTHON, "nvisio.cip.language.jython.JythonLanguageSupport" );
 		LanguageSupport support = (JythonLanguageSupport) lsf.getSupportFor( SyntaxConstants.SYNTAX_STYLE_PYTHON );
 
 		JythonLanguageSupport jls = (JythonLanguageSupport)support;

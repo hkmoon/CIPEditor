@@ -1,5 +1,7 @@
 package nvisio.cip.language.jython;
 
+import nvisio.cip.language.jython.buildpath.LibraryInfo;
+
 import java.awt.Point;
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +9,6 @@ import java.util.List;
 import javax.swing.text.JTextComponent;
 
 import org.fife.rsta.ac.ShorthandCompletionCache;
-import org.fife.rsta.ac.java.buildpath.LibraryInfo;
 import org.fife.rsta.ac.java.rjc.ast.CompilationUnit;
 import org.fife.ui.autocomplete.AbstractCompletionProvider;
 import org.fife.ui.autocomplete.Completion;
@@ -37,7 +38,7 @@ public class JythonCompletionProvider extends LanguageAwareCompletionProvider
 	}
 
 
-	public JythonCompletionProvider(JythonJarManager jarManager)
+	public JythonCompletionProvider(JarManager jarManager)
 	{
 		sourceProvider =  new SourceCompletionProvider(jarManager);
 		sourceProvider.setJythonProvider(this);

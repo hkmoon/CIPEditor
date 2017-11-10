@@ -115,8 +115,7 @@ public class FieldInfoData implements MemberCompletion.Data
 	private String getSummaryFromSourceLoc(SourceLocation loc, ClassFile cf) {
 
 		String summary = null;
-		CompilationUnit cu = org.fife.rsta.ac.java.Util.
-				getCompilationUnitFromDisk(loc, cf);
+		CompilationUnit cu = nvisio.cip.language.jython.Util.getCompilationUnitFromDisk(loc, cf);
 
 		// If the class's source was found and successfully parsed, look for
 		// this method.

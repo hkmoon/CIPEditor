@@ -103,8 +103,7 @@ public class MethodInfoData implements MemberCompletion.Data
 	private Method getMethodFromSourceLoc(SourceLocation loc, ClassFile cf) {
 
 		Method res = null;
-		CompilationUnit cu = org.fife.rsta.ac.java.Util.
-				getCompilationUnitFromDisk(loc, cf);
+		CompilationUnit cu = nvisio.cip.language.jython.Util.getCompilationUnitFromDisk(loc, cf);
 
 		// If the class's source was found and successfully parsed, look for
 		// this method.

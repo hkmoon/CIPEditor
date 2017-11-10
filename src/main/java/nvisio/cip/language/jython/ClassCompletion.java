@@ -10,7 +10,6 @@ import javax.swing.Icon;
 
 import org.fife.rsta.ac.java.AbstractJavaSourceCompletion;
 import org.fife.rsta.ac.java.IconFactory;
-import org.fife.rsta.ac.java.Util;
 import org.fife.rsta.ac.java.buildpath.SourceLocation;
 import org.fife.rsta.ac.java.classreader.AccessFlags;
 import org.fife.rsta.ac.java.classreader.ClassFile;

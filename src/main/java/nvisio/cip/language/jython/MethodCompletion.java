@@ -213,7 +213,7 @@ public class MethodCompletion extends FunctionCompletion implements MemberComple
 
 		// If it's the Javadoc for the method...
 		if (summary!=null && summary.startsWith("/**")) {
-			summary = org.fife.rsta.ac.java.Util.docCommentToHtml(summary);
+			summary = Util.docCommentToHtml(summary);
 		}
 
 		return summary;

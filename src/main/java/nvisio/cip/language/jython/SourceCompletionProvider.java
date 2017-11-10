@@ -1,5 +1,7 @@
 package nvisio.cip.language.jython;
 
+import nvisio.cip.language.jython.buildpath.LibraryInfo;
+
 import java.awt.Cursor;
 import java.awt.Point;
 import java.io.File;
@@ -16,8 +18,6 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
 
 import org.fife.rsta.ac.ShorthandCompletionCache;
-import org.fife.rsta.ac.java.Util;
-import org.fife.rsta.ac.java.buildpath.LibraryInfo;
 import org.fife.rsta.ac.java.buildpath.SourceLocation;
 import org.fife.rsta.ac.java.classreader.ClassFile;
 import org.fife.rsta.ac.java.classreader.FieldInfo;
@@ -47,7 +47,7 @@ import org.fife.ui.rsyntaxtextarea.Token;
  * Copied from the JavaLanguageSupport
  * Author: HongKee Moon
  */
-public class SourceCompletionProvider extends DefaultCompletionProvider
+class SourceCompletionProvider extends DefaultCompletionProvider
 {
 
 	/**
@@ -58,7 +58,7 @@ public class SourceCompletionProvider extends DefaultCompletionProvider
 	/**
 	 * Used to get information about what classes match imports.
 	 */
-	private JythonJarManager jarManager;
+	private JarManager jarManager;
 
 	private static final String JAVA_LANG_PACKAGE			= "java.lang.*";
 	private static final String CIP_PACKAGE					= "nvisio.cip.*";
@@ -78,9 +78,9 @@ public class SourceCompletionProvider extends DefaultCompletionProvider
 	 *
 	 * @param jarManager The jar manager for this provider.
 	 */
-	public SourceCompletionProvider(JythonJarManager jarManager) {
+	public SourceCompletionProvider(JarManager jarManager) {
 		if (jarManager==null) {
-			jarManager = new JythonJarManager();
+			jarManager = new JarManager();
 		}
 		this.jarManager = jarManager;
 		setParameterizedCompletionParams('(', ", ", ')');

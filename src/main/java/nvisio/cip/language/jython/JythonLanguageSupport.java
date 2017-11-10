@@ -1,6 +1,7 @@
 package nvisio.cip.language.jython;
 
 import org.fife.rsta.ac.AbstractLanguageSupport;
+import org.fife.rsta.ac.java.JavadocUrlHandler;
 import org.fife.rsta.ac.java.rjc.ast.CompilationUnit;
 import org.fife.rsta.ac.java.rjc.ast.ImportDeclaration;
 import org.fife.rsta.ac.java.rjc.ast.Package;
@@ -31,7 +32,7 @@ import java.util.Map;
  */
 public class JythonLanguageSupport extends AbstractLanguageSupport
 {
-	private JythonJarManager jarManager;
+	private JarManager jarManager;
 	private Map<JythonParser, Info> parserToInfoMap;
 	/**
 	 * Client property installed on text areas that points to a listener.
@@ -42,13 +43,13 @@ public class JythonLanguageSupport extends AbstractLanguageSupport
 	public JythonLanguageSupport()
 	{
 		parserToInfoMap = new HashMap<JythonParser, Info>();
-		jarManager = new JythonJarManager();
+		jarManager = new JarManager();
 		setAutoActivationEnabled(true);
-//		setParameterAssistanceEnabled(true);
-//		setShowDescWindow(true);
+		setParameterAssistanceEnabled(true);
+		setShowDescWindow(true);
 	}
 
-	public JythonJarManager getJarManager() {
+	public JarManager getJarManager() {
 		return jarManager;
 	}
 
@@ -60,9 +61,9 @@ public class JythonLanguageSupport extends AbstractLanguageSupport
 		ac.setAutoCompleteEnabled(isAutoCompleteEnabled());
 		ac.setAutoActivationEnabled(isAutoActivationEnabled());
 		ac.setAutoActivationDelay(getAutoActivationDelay());
-//		ac.setExternalURLHandler(new JavadocUrlHandler());
+		ac.setExternalURLHandler(new JavadocUrlHandler());
 		ac.setParameterAssistanceEnabled(isParameterAssistanceEnabled());
-//		ac.setParamChoicesRenderer(new JavaParamListCellRenderer());
+		ac.setParamChoicesRenderer(new JythonParamListCellRenderer());
 		ac.setShowDescWindow(getShowDescWindow());
 		ac.install(textArea);
 		installImpl(textArea, ac);

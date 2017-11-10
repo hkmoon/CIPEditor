@@ -10,7 +10,6 @@ import javax.swing.text.JTextComponent;
 
 import org.fife.rsta.ac.LanguageSupport;
 import org.fife.rsta.ac.LanguageSupportFactory;
-import org.fife.rsta.ac.java.JarManager;
 import org.fife.rsta.ac.java.JavaSourceCompletion;
 import org.fife.rsta.ac.java.rjc.ast.CodeBlock;
 import org.fife.rsta.ac.java.rjc.ast.CompilationUnit;
