@@ -17,7 +17,6 @@ import org.fife.ui.autocomplete.ParameterizedCompletion;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class JythonCompletionProvider extends LanguageAwareCompletionProvider
 {

@@ -14,7 +14,6 @@ import org.fife.rsta.ac.java.rjc.ast.TypeDeclaration;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class FieldInfoData implements MemberCompletion.Data
 {

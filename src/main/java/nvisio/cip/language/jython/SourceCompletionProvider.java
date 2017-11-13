@@ -121,6 +121,14 @@ class SourceCompletionProvider extends DefaultCompletionProvider
 
 	}
 
+	/**
+	 * In case of CIP package, we created a special handler for taking custom parameter helpers
+	 *
+	 * @param set
+	 * @param cu
+	 * @param cf
+	 * @param pkg
+	 */
 	private void addCompletionsForPredefinedMembers(Set<Completion > set,
 			CompilationUnit cu, ClassFile cf, String pkg) {
 
@@ -131,7 +139,7 @@ class SourceCompletionProvider extends DefaultCompletionProvider
 		for (int i=0; i< methodCount; i++) {
 			MethodInfo info = cf.getMethodInfo(i);
 			if (isAccessible(info, pkg) && !info.isStatic()) {
-				MethodCompletion mc = new MethodCompletion(this, info);
+				CIPMethodCompletion mc = new CIPMethodCompletion(this, info);
 				set.add(mc);
 			}
 		}
@@ -314,7 +322,6 @@ class SourceCompletionProvider extends DefaultCompletionProvider
 			if (superClass==null) {
 				String temp = "java.lang." + className;
 				superClass = jarManager.getClassEntry(temp);
-				System.out.println(superClass);
 			}
 		}
 
@@ -921,6 +928,8 @@ class SourceCompletionProvider extends DefaultCompletionProvider
 
 		}
 
+		// hkmoon: Improve it for the parameter suggestions
+		// Special treatment for CIP package
 		if (prefix.equalsIgnoreCase( "cip" ) && !matched) {
 			List<ImportDeclaration> imports = cu.getImports();
 			List<ClassFile> matches = jarManager.getClassesWithUnqualifiedName(

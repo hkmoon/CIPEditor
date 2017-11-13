@@ -8,7 +8,6 @@ import org.fife.rsta.ac.java.rjc.lang.Type;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class MethodData implements MemberCompletion.Data
 {

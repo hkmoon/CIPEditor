@@ -8,16 +8,10 @@ import javax.swing.JList;
 import java.awt.Component;
 import java.awt.Dimension;
 
-/**
- * Author: HongKee Moon
- */
 public class JythonParamListCellRenderer extends JavaCellRenderer
 {
 	public JythonParamListCellRenderer() {
-		// Param completions don't display type info, etc., because all
-		// completions for a single parameter have the same type (or subclass
-		// that type).
-		setSimpleText(true);
+		setSimpleText(false);
 	}
 
 

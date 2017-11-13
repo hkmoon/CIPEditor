@@ -8,6 +8,7 @@ import nvisio.cip.language.jython.JarManager;
 
 import org.fife.rsta.ac.LanguageSupport;
 import org.fife.rsta.ac.LanguageSupportFactory;
+import org.fife.rsta.ac.java.buildpath.ZipSourceLocation;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.scijava.Context;
@@ -126,7 +127,7 @@ public class JythonEditor extends Editor
 				}
 
 
-				jls.getJarManager().addClassFileSource( new JarLibraryInfo( new File("res/lib/CIP-0.1.0.jar") ) );
+				jls.getJarManager().addClassFileSource( new JarLibraryInfo( new File("res/lib/CIP-0.1.0.jar"), new ZipSourceLocation("res/lib/CIP-0.1.0-sources.jar") ) );
 			}
 
 

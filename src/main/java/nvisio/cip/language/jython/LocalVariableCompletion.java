@@ -11,7 +11,6 @@ import java.awt.Graphics;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class LocalVariableCompletion extends AbstractJavaSourceCompletion
 {

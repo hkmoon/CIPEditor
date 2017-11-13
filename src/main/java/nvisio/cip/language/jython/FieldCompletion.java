@@ -12,7 +12,6 @@ import org.fife.ui.autocomplete.CompletionProvider;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class FieldCompletion extends AbstractJavaSourceCompletion
 		implements MemberCompletion {

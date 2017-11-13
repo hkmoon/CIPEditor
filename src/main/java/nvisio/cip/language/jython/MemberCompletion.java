@@ -5,7 +5,6 @@ import org.fife.rsta.ac.java.JavaSourceCompletion;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 interface MemberCompletion extends JavaSourceCompletion
 {

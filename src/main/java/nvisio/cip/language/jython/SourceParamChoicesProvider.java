@@ -34,7 +34,6 @@ import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class SourceParamChoicesProvider implements ParameterChoicesProvider
 {

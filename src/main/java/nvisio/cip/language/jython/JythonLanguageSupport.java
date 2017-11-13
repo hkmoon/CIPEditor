@@ -1,7 +1,7 @@
 package nvisio.cip.language.jython;
 
 import org.fife.rsta.ac.AbstractLanguageSupport;
-import org.fife.rsta.ac.java.JavadocUrlHandler;
+
 import org.fife.rsta.ac.java.rjc.ast.CompilationUnit;
 import org.fife.rsta.ac.java.rjc.ast.ImportDeclaration;
 import org.fife.rsta.ac.java.rjc.ast.Package;

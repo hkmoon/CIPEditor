@@ -14,9 +14,6 @@ import org.fife.rsta.ac.java.buildpath.SourceLocation;
 import org.fife.rsta.ac.java.classreader.ClassFile;
 import org.fife.rsta.ac.java.rjc.ast.CompilationUnit;
 
-/**
- * Author: HongKee Moon
- */
 public class Util
 {
 
@@ -95,6 +92,24 @@ public class Util
 				token = st[i++]; // Actual parameter
 				if (params==null) {
 					params = new StringBuilder("<b>Parameters:</b><p class='indented'>");
+				}
+				else {
+					params.append("<br>");
+				}
+				params.append("<b>").append(token).append("</b> ");
+				inSeeAlso=false;
+				inParams = true;
+				inReturns = false;
+				inThrows = false;
+				inSince = false;
+				inAuthor = false;
+				inVersion = false;
+				inUnknowns = false;
+			}
+			else if ("@cip-param".equals(token) && i<st.length) {
+				token = st[i++]; // Actual parameter
+				if (params==null) {
+					params = new StringBuilder("<b>CIP Parameters:</b><p class='indented'>");
 				}
 				else {
 					params.append("<br>");

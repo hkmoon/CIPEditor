@@ -20,7 +20,6 @@ import org.fife.ui.rsyntaxtextarea.parser.ParseResult;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class JythonParser extends AbstractParser {
 

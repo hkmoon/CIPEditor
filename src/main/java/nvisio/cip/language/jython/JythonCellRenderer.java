@@ -15,7 +15,6 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxUtilities;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class JythonCellRenderer extends DefaultListCellRenderer
 {

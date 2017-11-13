@@ -7,7 +7,6 @@ import org.fife.rsta.ac.java.rjc.lang.Modifiers;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class FieldData implements MemberCompletion.Data
 {

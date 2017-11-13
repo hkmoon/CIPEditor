@@ -19,25 +19,36 @@ import org.fife.ui.autocomplete.FunctionCompletion;
 
 /**
  * Copied from the JavaLanguageSupport
- * Author: HongKee Moon
  */
 public class MethodCompletion extends FunctionCompletion implements MemberCompletion {
 
 	/**
 	 * The data source for our completion attributes.
 	 */
-	private Data data;
+	protected Data data;
 
 	/**
 	 * Used to compare this method completion with another.
 	 */
-	private String compareString;
+	protected String compareString;
 
 	/**
 	 * The relevance of methods.  This allows methods to be "higher" in
 	 * the completion list than other types.
 	 */
-	private static final int NON_CONSTRUCTOR_RELEVANCE		= 2;
+	protected static final int NON_CONSTRUCTOR_RELEVANCE		= 2;
+
+	/**
+	 * Creates a completion for a method discovered when parsing a Java
+	 * source file.
+	 *
+	 * @param provider
+	 * @param methodName
+	 * @param methodType
+	 */
+	protected MethodCompletion(CompletionProvider provider, String methodName, String methodType) {
+		super(provider, methodName, methodType);
+	}
 
 
 	/**
@@ -244,7 +255,7 @@ public class MethodCompletion extends FunctionCompletion implements MemberComple
 	/**
 	 * Sets the relevance of this constructor based on its properties.
 	 */
-	private void setRelevanceAppropriately() {
+	protected void setRelevanceAppropriately() {
 		// Only change relevance from the default if this isn't a constructor.
 		if (!data.isConstructor()) {
 			setRelevance(NON_CONSTRUCTOR_RELEVANCE);
